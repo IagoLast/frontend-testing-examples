@@ -12,13 +12,16 @@ function App() {
 
   return (
     <main className="App">
-      <h1> Fill data to check if you have free tickets</h1>
-      {hasFreeTickets === true
-        ? <h1> Congrats, you have free tickets!</h1>
-        : null
+      <h1> Tickets for testing event.</h1>
+      {
+        hasFreeTickets
+          ? <h1> Congrats, you have free tickets!</h1>
+          : null
       }
       <form>
         <br />
+        <input type="text" id="name" placeholder="First name"></input>
+        <input type="number" id="exp" placeholder="Years of experience"></input>
         <label htmlFor="isVip">
           <input
             id="isVip"
@@ -27,7 +30,7 @@ function App() {
             value={isVip}
             onChange={e => setIsVip(e.target.checked)} />
           VIP
-         </label>
+                    </label>
         <br />
         <input
           data-testid="action-btn"

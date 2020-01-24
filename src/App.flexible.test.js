@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import App from './AppComponent';
-// import App from './AppHooks'; // This test will pass even when testing the same application written using hooks.
+// import App from './AppComponent';
+import App from './AppHooks'; // This test will pass even when testing the same application written using hooks.
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });

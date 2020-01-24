@@ -10,6 +10,7 @@ export default class App extends Component {
         }
     }
 
+
     _onButtonClick() {
         const user = { isVip: this.state.isVip };
         const hasFreeTickets = ticketsService.hasFreeTickets(user);
@@ -20,9 +21,10 @@ export default class App extends Component {
         return (
             <main className="App">
                 <h1> Tickets for testing event.</h1>
-                {this.state.hasFreeTickets === true
-                    ? <h1> Congrats, you have free tickets!</h1>
-                    : null
+                {
+                    this.state.hasFreeTickets
+                        ? <h1> Congrats, you have free tickets!</h1>
+                        : null
                 }
                 <form>
                     <br />
