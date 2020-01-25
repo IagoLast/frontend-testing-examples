@@ -5,6 +5,7 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
+            name: '',
             isVip: undefined,
             hasFreeTickets: undefined,
         }
@@ -28,7 +29,7 @@ export default class App extends Component {
                 }
                 <form>
                     <br />
-                    <input type="text" id="name" placeholder="First name"></input>
+                    <input type="text" id="name" placeholder="First name" value={this.state.name} onChange={e => this.setState({ name: e.target.value })}></input>
                     <input type="number" id="exp" placeholder="Years of experience"></input>
                     <label htmlFor="isVip">
                         <input
