@@ -2,26 +2,25 @@ import React, { useState } from 'react';
 import ticketsService from './tickets.service';
 
 function App() {
-  const [isVip, setIsVip] = useState(undefined);
-  const [hasFreeTickets, setHasFreeTickets] = useState(undefined);
+  const [name, setName] = useState('');
+  const [isVip, setIsVip] = useState(false);
+  const [exp, setExp] = useState(false);
 
-  function _onButtonClick() {
-    const user = { isVip }
-    setHasFreeTickets(ticketsService.hasFreeTickets(user));
-  }
+  const hasFreeTickets = ticketsService.hasFreeTickets({ isVip })
 
   return (
+
     <main className="App">
       <h1> Tickets for testing event.</h1>
       {
         hasFreeTickets
-          ? <h1> Congrats, you have free tickets!</h1>
-          : null
+          ? <h1>0€</h1>
+          : <h1>20€</h1>
       }
       <form>
         <br />
-        <input type="text" id="name" placeholder="First name"></input>
-        <input type="number" id="exp" placeholder="Years of experience"></input>
+        <input type="text" id="name" placeholder="First name" value={name} onChange={e => setName(e.target.value)}></input>
+        <input type="number" id="exp" placeholder="Years of experience" value={exp} onChange={e => setExp(e.target.value)}></input>
         <label htmlFor="isVip">
           <input
             id="isVip"
@@ -30,13 +29,14 @@ function App() {
             value={isVip}
             onChange={e => setIsVip(e.target.checked)} />
           VIP
-                    </label>
+        </label>
         <br />
+
         <input
           data-testid="action-btn"
-          value="Check free tickets"
+          value="Buy tickets"
           type="button"
-          onClick={_onButtonClick} />
+        />
       </form>
     </main>
   );

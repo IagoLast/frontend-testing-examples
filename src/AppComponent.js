@@ -7,25 +7,20 @@ export default class App extends Component {
         this.state = {
             name: '',
             isVip: undefined,
-            hasFreeTickets: undefined,
         }
     }
 
-
-    _onButtonClick() {
+    render() {
         const user = { isVip: this.state.isVip };
         const hasFreeTickets = ticketsService.hasFreeTickets(user);
-        this.setState({ hasFreeTickets });
-    }
 
-    render() {
         return (
             <main className="App">
                 <h1> Tickets for testing event.</h1>
                 {
-                    this.state.hasFreeTickets
-                        ? <h1> Congrats, you have free tickets!</h1>
-                        : null
+                    hasFreeTickets
+                        ? <h1>0€</h1>
+                        : <h1>20€</h1>
                 }
                 <form>
                     <br />
@@ -41,11 +36,12 @@ export default class App extends Component {
                         VIP
                     </label>
                     <br />
+
                     <input
                         data-testid="action-btn"
-                        value="Check free tickets"
+                        value="Buy tickets"
                         type="button"
-                        onClick={this._onButtonClick.bind(this)} />
+                    />
                 </form>
             </main>
         );
