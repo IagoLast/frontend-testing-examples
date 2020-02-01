@@ -19,8 +19,26 @@ body {
   margin-bottom: .4rem;
 }
 
-.App input[type="text"], .App input[type="button"], .App input[type="number"] {
+.App input[type="email"], .App input[type="button"], .App input[type="number"] {
   width: 100%;
   padding: 8px;
   font-size: 1.2rem;
+  margin: 0;
+}
+
+.App input[type="email"]:invalid {
+  border: 1px solid tomato;
+}
+
+.Checkbox {
+  display: block;
+  margin: 8px 0;
+}
+
+.App input[type="button"] {
+  border: 1px solid #004488;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #004488;
 }

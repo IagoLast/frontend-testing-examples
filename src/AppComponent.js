@@ -5,7 +5,7 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            name: '',
+            email: '',
             isVip: undefined,
         }
     }
@@ -23,10 +23,9 @@ export default class App extends Component {
                         : <h1>20€</h1>
                 }
                 <form>
-                    <br />
-                    <input type="text" id="name" placeholder="First name" value={this.state.name} onChange={e => this.setState({ name: e.target.value })}></input>
-                    <input type="number" id="exp" placeholder="Years of experience"></input>
-                    <label htmlFor="isVip">
+                    <input type="email" id="name" placeholder="Email" value={this.state.email} onChange={e => this.setState({ email: e.target.value })}></input>
+
+                    <label className="Checkbox" htmlFor="isVip">
                         <input
                             id="isVip"
                             type="checkbox"
@@ -35,7 +34,6 @@ export default class App extends Component {
                             onChange={e => this.setState({ isVip: e.target.checked })} />
                         VIP
                     </label>
-                    <br />
 
                     <input
                         data-testid="action-btn"
