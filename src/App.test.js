@@ -23,7 +23,7 @@ describe('<App/>', () => {
 
   describe('when the user is VIP', () => {
     beforeEach(() => {
-      fireEvent.click(wrapper.getByTestId('isVip-checkbox'), 'click');
+      fireEvent.click(wrapper.getByTestId('isVip-checkbox'));
     });
 
     it('should have right to free tickets ', () => {
