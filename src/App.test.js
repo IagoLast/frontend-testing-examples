@@ -25,7 +25,6 @@ describe('<App/>', () => {
     beforeEach(() => {
       fireEvent.click(wrapper.getByTestId('isVip-checkbox'));
     });
-
     it('should have right to free tickets ', () => {
       expect(wrapper.queryByText('0€')).toBeVisible();
     });
