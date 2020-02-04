@@ -14,8 +14,8 @@ function App() {
       <h1> Tickets for testing event.</h1>
       {
         hasFreeTickets
-          ? <h1>0€</h1>
-          : <h1>20€</h1>
+          ? <h2>0€</h2>
+          : <h2>20€</h2>
       }
       <form>
         <br />
