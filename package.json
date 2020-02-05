@@ -41,6 +41,8 @@
       "!<rootDir>/node_modules/",
       "!src/index.js"
     ],
-    "coverageReporters": ["text"]
+    "coverageReporters": [
+      "text"
+    ]
   }
 }
