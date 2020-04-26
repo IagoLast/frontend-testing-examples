@@ -1,33 +1,33 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-// import App from './AppComponent';
-import App from './AppHooks'; // This test will pass even when testing the same application written using hooks.
+import { render } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
+// import App from './AppHooks'; // This test will pass even when testing the same application written using hooks.
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import React from 'react';
+import App from './AppComponent';
 Enzyme.configure({ adapter: new Adapter() });
 
 
 describe('<App/>', () => {
-
-  let wrapper;
+  let view;
 
   beforeEach(() => {
-    wrapper = render(<App />);
+    view = render(<App />);
   });
 
   describe('when the user is not VIP', () => {
     it('should not have right to free tickets ', () => {
-      expect(wrapper.queryByText('20€')).toBeVisible();
+      expect(view.queryByText('20€')).toBeVisible();
     });
   });
 
   describe('when the user is VIP', () => {
-    beforeEach(() => {
-      fireEvent.click(wrapper.getByTestId('isVip-checkbox'));
-    });
-
     it('should have right to free tickets ', () => {
-      expect(wrapper.queryByText('0€')).toBeVisible();
+      const $isVipCheckbox = view.getByLabelText('VIP');
+      
+      userEvent.click($isVipCheckbox);
+
+      expect(view.queryByText('0€')).toBeVisible();
     });
   });
 });

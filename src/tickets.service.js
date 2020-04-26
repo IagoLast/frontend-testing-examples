@@ -1,8 +1,8 @@
-export function hasFreeTickets(user) {
+export function getTicketPrice(user) {
     if (user.isVip) {
-        return true;
+        return 0;
     }
-    return false;
+    return 20;
 }
 
-export default { hasFreeTickets };
+export default { getTicketPrice };

@@ -1,17 +1,17 @@
 import ticketsService from "./tickets.service";
 
 describe('tickets.service', () => {
-    describe('.hasFreeTickets(user)', () => {
-        it('should give free tickets whe the user is VIP', () => {
+    describe('.getTicketPrice(user)', () => {
+        it('should return 0 whe the user is VIP', () => {
             const dummyUser = { isVip: true };
-            const actual = ticketsService.hasFreeTickets(dummyUser);
-            expect(actual).toBeTruthy();
+            const actual = ticketsService.getTicketPrice(dummyUser);
+            expect(actual).toEqual(0);
         });
 
-        it('should not give free tickets whe the user is VIP', () => {
+        it('should return 20 when the user is not VIP', () => {
             const dummyUser = { isVip: false };
-            const actual = ticketsService.hasFreeTickets(dummyUser);
-            expect(actual).toBeFalsy();
+            const actual = ticketsService.getTicketPrice(dummyUser);
+            expect(actual).toEqual(20);
         });
     });
 });

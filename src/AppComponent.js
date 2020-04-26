@@ -7,22 +7,18 @@ export default class App extends Component {
         super();
         this.state = {
             email: '',
-            isVip: undefined,
+            isVip: false,
         }
     }
 
     render() {
         const user = { isVip: this.state.isVip };
-        const hasFreeTickets = ticketsService.hasFreeTickets(user);
+        const price = ticketsService.getTicketPrice(user);
 
         return (
             <main className="App">
                 <h1> Tickets for testing event.</h1>
-                {
-                    hasFreeTickets
-                        ? <h1>0€</h1>
-                        : <h1>20€</h1>
-                }
+                <h2>{`${price}€`}</h2>
                 <form>
                     <input type="email" id="name" placeholder="Email" value={this.state.email} onChange={e => this.setState({ email: e.target.value })}></input>
                     <Checkbox id="isVip" value={this.state.isVip} onChange={isVip => this.setState({ isVip })} text="VIP" />
