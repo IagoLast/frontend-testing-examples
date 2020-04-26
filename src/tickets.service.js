@@ -1,8 +1,8 @@
-export function hasFreeTickets(user) {
-    if (user.isVip) {
-        return true;
-    }
-    return false;
+import apiClient from './api.client';
+
+export async function hasFreeTickets(code) {
+    const hasFreeTickets = await apiClient.checkVoucher(code);
+    return hasFreeTickets ? 0 : 20;
 }
 
 export default { hasFreeTickets };

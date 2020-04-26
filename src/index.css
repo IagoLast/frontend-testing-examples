@@ -20,12 +20,12 @@ body {
   margin-bottom: .4rem;
 }
 
-.App input[type="email"], .App input[type="button"], .App input[type="number"] {
+.App input[type="text"], .App input[type="email"], .App input[type="button"], .App input[type="number"] {
   border: 1px solid #336677;
   width: 100%;
   padding: 8px;
   font-size: 1.2rem;
-  margin: 0;
+  margin: 4px 0;
   border-radius: 4px;
 }
 
