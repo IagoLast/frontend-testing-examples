@@ -10,7 +10,7 @@ describe('<App/>', () => {
   let wrapper, $voucherInput;
 
   beforeEach(() => {
-    jest.spyOn(apiClient, 'checkVoucher').mockImplementation(async (code) => code === 'valid');  // Replace the client with a fake implementation.
+    jest.spyOn(apiClient, 'checkVoucher').mockImplementation(fakeCheckVoucher);  // Replace the client with a fake implementation.
     wrapper = render(<App />);
     $voucherInput = wrapper.getByPlaceholderText('Código de descuento')
   });
@@ -30,3 +30,7 @@ describe('<App/>', () => {
     expect(wrapper.queryByText('0€')).toBeVisible();
   });
 });
+
+async function fakeCheckVoucher(code) {
+  return code === 'valid';
+}
