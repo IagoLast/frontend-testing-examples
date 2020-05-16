@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ticketsService from './tickets.service';
 import Checkbox from './components/Checkbox';
 
+if(typeof global.describe !== 'undefined' ) {
+    throw Error('WOOOOPS; THIS ELEMENT CANT BE TESTED!');
+}
+
 export default class App extends Component {
     constructor() {
         super();
