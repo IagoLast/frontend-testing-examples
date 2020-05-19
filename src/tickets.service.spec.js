@@ -2,7 +2,7 @@ import ticketsService from "./tickets.service";
 
 describe('tickets.service', () => {
     describe('.getTicketPrice(user)', () => {
-        it('should return 0 whe the user is VIP', () => {
+        it('should return 0 when the user is VIP', () => {
             const dummyUser = { isVip: true };
             const actual = ticketsService.getTicketPrice(dummyUser);
             expect(actual).toEqual(0);
