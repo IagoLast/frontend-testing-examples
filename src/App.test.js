@@ -18,7 +18,7 @@ describe('<App/>', () => {
 
   describe('when the user is VIP', () => {
     beforeEach(() => {
-      userEvent.click(screen.getByTestId('isVip-checkbox'));
+      userEvent.click(screen.queryByLabelText('VIP'));
     });
 
     it('should have right to free tickets ', () => {
